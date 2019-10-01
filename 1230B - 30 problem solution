@@ -1,0 +1,42 @@
+//Author - Sudhanshu Mishra
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+  long long n,k;
+  cin>>n>>k;
+  string s,str;
+  cin>>s;
+  if(k==0)
+  cout<<s<<endl;
+  else
+  if(s.size()==1&&s[0]=='0')
+  cout<<0<<endl;
+  else if(s.size()==1&&s[0]=='1')
+  cout<<0<<endl;
+  else if(s.size()==1)
+  cout<<0<<endl;
+  else
+  {
+    if(s[0]!='1')
+    {
+      s[0]='1';
+      k--;
+    }
+    for(long long i=1;i<n;++i)
+    {
+      if(k>0)
+      {
+        if(s[i]!='0')
+        {
+          s[i]='0';
+          k--;
+          //cout<<"   "<<s<<" "<<k<<endl;
+        }
+        else continue;
+      }
+      else break;
+    }
+    cout<<s<<endl;
+  }
+}
