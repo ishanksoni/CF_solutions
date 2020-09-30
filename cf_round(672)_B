@@ -1,0 +1,73 @@
+#include <bits/stdc++.h> 
+using namespace std; 
+#define ll long long
+#define pb push_back
+#define mod 1000000007
+#define firstval 2000000
+#define FAST_IO ios_base::sync_with_stdio(0); cin.tie(0);
+long long binpow(long long a, long long b)
+{
+    long long res = 1;
+    while (b > 0) {
+        if (b & 1)
+            res = res * a;
+        a = a * a;
+        b >>= 1;
+    }
+    return res;
+}
+ll int myXOR(ll int x,ll int y) 
+{ 
+   return (x | y) & (~x | ~y); 
+} 
+ll int setBitNumber(ll int n) 
+{ 
+    n |= n >> 1; 
+    n |= n >> 2; 
+    n |= n >> 4; 
+    n |= n >> 8; 
+    n |= n >> 16; 
+    n = n + 1; 
+    return n - (n >> 1); 
+} 
+int main() 
+{  
+    FAST_IO;
+	int t;
+    cin >> t;
+    while(t--)
+    {
+        ll n,x;
+        cin>>n;
+        vector<ll>v;
+        for(int i=0;i<n;i++)
+        {
+            cin>>x;
+            v.pb(x);
+        }
+        ll co[32] = {0};
+        for(int i=0;i<n;i++)
+        {
+            ll val = setBitNumber(v[i]);
+            ll dd = val&v[i];
+            if(dd == val)dd = 1;
+            ll c = 0;
+            while(val!=0)
+            {
+                val = val/2;
+                c++;
+            }
+            c--;
+            if(dd)
+            co[c]++;
+        }
+
+        ll ans = 0;
+        for(int i=0;i<32;i++)
+        {
+            ans += (co[i]*(co[i]-1))/2;
+        }
+        cout<<ans<<"\n";
+    }
+    return 0;
+} 
