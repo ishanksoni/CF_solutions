@@ -2,4 +2,4 @@
 
 MY solution to some of the Code-forces Problems
 
-<h1 align="center"> Made With ❤</h1>
+<h1 align="center"> Made With ❤ by Ishank Soni</h1>
